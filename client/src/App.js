@@ -1,12 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "./Master/master.js"
+import "./Login/login.js"
 import Master from "./Master/master.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from "./Login/login";
 
 function App() {
-  return (
+  return ( <>
     <Master />
+    <Login />
+  </> 
   );
 }
 

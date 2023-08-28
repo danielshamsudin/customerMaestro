@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-function AutoLayoutExample() {
+function Master() {
   return (
     <Container className='main-con'>
       <Row>
@@ -19,4 +19,4 @@ function AutoLayoutExample() {
   );
 }
 
-export default AutoLayoutExample;
+export default Master;

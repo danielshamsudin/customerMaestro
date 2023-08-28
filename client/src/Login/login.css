@@ -1,0 +1,20 @@
+.login-heading {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    color: #121113;
+}
+
+.main-form {
+    padding: 5% 10%;
+}
+
+.login-btn {
+    margin-top: 5%;
+    align-self: center;
+    width: 50%;
+    background-color: #899878;
+    color: #F7F7F2;
+    border-color: #899878;
+}
