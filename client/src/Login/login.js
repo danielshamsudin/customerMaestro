@@ -1,5 +1,3 @@
-// CSS
-import './login.css'
 // React Bootstrap
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,6 +7,8 @@ import Form from 'react-bootstrap/Form';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+// CSS
+import './login.css'
 
 function Login() {
     return (
@@ -17,7 +17,7 @@ function Login() {
         <Form className='main-form'>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" placeholder="" />
             <Form.Text className="text-muted">
               {/* We'll never share your email with anyone else. */}
             </Form.Text>
@@ -25,7 +25,7 @@ function Login() {
     
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="" />
           </Form.Group>
           <Row className='justify-content-center'>
             <Button variant="primary" type="submit" className='login-btn'>
