@@ -1,8 +1,14 @@
 .main-con {
     background-color: #E4E6C3;
     padding: 3% 3%;
+    font-size: 1.5rem;
+}
+
+.main-con > * {
+    align-items: center;
 }
 
 .logo {
     padding-right: 3%;
+    width: auto;
 }
