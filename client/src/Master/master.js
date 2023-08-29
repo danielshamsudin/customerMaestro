@@ -10,7 +10,7 @@ import './master.css'
 
 function Master() {
   return (
-    <Container className='main-con'>
+    <Container fluid className='main-con'>
       <Row>
         <Col><FontAwesomeIcon icon={faBars} /></Col>
         <Col >

@@ -1,15 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo.svg";
+
 import "./App.css";
-import "./Master/master.js"
-import "./Login/login.js"
+
+// Testing purposes import
 import Master from "./Master/master.js";
 import Login from "./Login/login";
+import Register from './Register/register.js';
 
 function App() {
   return ( <>
     <Master />
-    <Login />
+    <Register />
   </> 
   );
 }

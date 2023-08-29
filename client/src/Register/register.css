@@ -1,0 +1,16 @@
+.picture-btn {
+    width: auto;
+    font-size: 4rem;
+    margin: 3% auto 5% auto;
+    border: none;
+    background-color: white;
+}
+
+.register-btn {
+    margin-top: 5%;
+    align-self: center;
+    width: 50%;
+    background-color: #899878;
+    color: #F7F7F2;
+    border-color: #899878;
+}
