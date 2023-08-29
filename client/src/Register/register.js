@@ -1,3 +1,5 @@
+// CSS
+import './register.css'
 // React Bootstrap
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,8 +9,6 @@ import Form from 'react-bootstrap/Form';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-// CSS
-import './login.css'
 
 function Login() {
     return (
@@ -32,20 +32,9 @@ function Login() {
                 Login
             </Button>
           </Row>
-          
         </Form>
         </>
       );
 }
-
-function FormField(props) {
-    return (
-        <>
-            <label for={ props.name}>{props.name}</label><br/>
-            <input type='text' id={props.name} name={props.name}></input><br/>
-        </>
-    )
-}
-
 
 export default Login;
