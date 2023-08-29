@@ -1,0 +1,44 @@
+@import '../Utilities/colors.css';
+
+* {
+    font-family: 'General Sans';
+}
+
+.top-row {
+    padding: 4% 2% 1% 2%;
+}
+
+.top-row h4{
+    width: fit-content;
+}
+
+.top-row:nth-child(2){
+    display: flex;
+    justify-content: end;
+}
+
+.second-row {
+    display: flex;
+    justify-content: end;
+}
+
+.second-row button {
+    width: auto;
+    margin-right: 2%;
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    color: var(--dark);
+    font-family: 'Migra';
+}
+
+.product-title {
+    padding: 5%;
+}
+
+.product-title > h2 {
+    width: fit-content;
+}
+
+.table-content{
+    padding: 5% 5% auto 5%;
+}
