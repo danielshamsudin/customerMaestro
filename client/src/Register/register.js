@@ -41,6 +41,12 @@ function Register() {
                 </FloatingLabel>
                 <FloatingLabel
                     controlId="floatingInput"
+                    label="Password"
+                    className="mb-3" >
+                    <Form.Control type="password" placeholder="" name="password" required/>
+                </FloatingLabel>
+                <FloatingLabel
+                    controlId="floatingInput"
                     label="Phone Number"
                     className="mb-3" >
                     <Form.Control type="tel" placeholder="" name="phoneNumber"/>
