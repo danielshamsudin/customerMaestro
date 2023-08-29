@@ -1,0 +1,25 @@
+.justify-content-center h1 {
+    width: auto;
+    margin: 20% auto 10% auto;
+}
+
+.content-cont {
+    padding: 3% 10%;
+}
+.content-icon {
+    margin-left: 3%;
+}
+
+.accordion-button:not(.collapsed) {
+    background: transparent;
+    color: white;
+}
+
+.accordion-button:not(.collapsed)::after {
+    color: white;
+}
+
+.accordion-button:focus {
+    border-color: #899878;
+    border: none;
+}

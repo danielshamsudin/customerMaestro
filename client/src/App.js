@@ -7,11 +7,12 @@ import "./App.css";
 import Master from "./Master/master.js";
 import Login from "./Login/login";
 import Register from './Register/register.js';
+import Admin from './Admin/admin';
 
 function App() {
   return ( <>
     <Master />
-    <Register />
+    <Admin />
   </> 
   );
 }
