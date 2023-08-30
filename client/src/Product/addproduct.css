@@ -1,12 +1,26 @@
+@import '../Utilities/colors.css';
+
+h3 {
+    width: fit-content!important;
+}
+
+.title-row {
+    margin: 10% auto 0 auto;
+}
+
+.main-form {
+    margin: auto 10% auto 10%;
+}
+
 .picture-btn {
     width: auto;
-    font-size: 4rem;
+    font-size: 5rem;
     margin: 3% auto 5% auto;
     border: none;
     background-color: white;
 }
 
-.register-btn {
+.submit-btn {
     margin-top: 5%;
     align-self: center;
     width: 50%;
