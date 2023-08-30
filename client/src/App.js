@@ -5,13 +5,20 @@ import "./App.css";
 
 // Testing purposes import
 import Master from "./Master/master.js";
-import Login from "./Login/login";
-import Register from './Register/register.js';
+// import Login from "./Login/login";
+// import Register from './Register/register.js';
+// import Admin from './Admin/admin';
+// import ViewProduct from './Product/viewproduct';
+// import ViewAllProduct from './Product/viewallproduct';
+import AddProduct from './Product/addproduct';
+
+import './Utilities/colors.css'
+import './Utilities/fonts/fonts.css'
 
 function App() {
   return ( <>
     <Master />
-    <Register />
+    <AddProduct />
   </> 
   );
 }

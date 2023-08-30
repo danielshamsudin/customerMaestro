@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faUser } from '@fortawesome/free-solid-svg-icons'
 // CSS
 import './master.css'
 
@@ -15,7 +15,7 @@ function Master() {
         <Col><FontAwesomeIcon icon={faBars} /></Col>
         <Col >
           <Row className='justify-content-end logo'>
-            IMG
+            <FontAwesomeIcon className='logo' icon={faUser}/>
           </Row>
         </Col>
       </Row>
