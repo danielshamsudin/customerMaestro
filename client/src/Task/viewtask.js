@@ -13,7 +13,6 @@ import { faPenToSquare, faCheck, faXmark } from '@fortawesome/free-solid-svg-ico
 
 import '../Utilities/colors.css'
 import './viewtask.css'
-import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 
 function ViewTask() {
     return <>
