@@ -1,0 +1,50 @@
+@import '../Utilities/colors.css';
+
+h3 {
+    width: fit-content!important;
+}
+
+.title-row {
+    margin: 10% auto 10% auto;
+}
+
+.main-form {
+    margin: auto 10% auto 10%;
+}
+
+.normal-btn {
+    --bs-btn-color: var(--light);
+    --bs-btn-bg: var(--primary-dark);
+    --bs-btn-border-color: var(--primary-dark);
+    --bs-btn-hover-color: var(--light);
+    --bs-btn-hover-bg: var(--dark);
+    --bs-btn-hover-border-color: var(--dark);
+    --bs-btn-focus-shadow-rgb: var(--light);
+    --bs-btn-active-color: var(--light);
+    --bs-btn-active-bg: var(--dark);
+    --bs-btn-active-border-color: var(--dark);
+}
+
+.submit-btn {
+    margin-top: 5%;
+    align-self: center;
+    width: 50%;
+    background-color: var(--primary-dark);
+    color: var(--light);
+    border-color: var(--primary-dark);
+    --bs-btn-hover-color: var(--light);
+    --bs-btn-hover-bg: var(--contrast);
+    --bs-btn-hover-border-color: var(--contrast);
+    --bs-btn-focus-shadow-rgb: var(--light);
+    --bs-btn-active-color: var(--light);
+    --bs-btn-active-bg: var(--contrast);
+    --bs-btn-active-border-color: var(--contrast);
+}
+
+.field-customer {
+    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+}
+
+.type-label {
+    display: block;
+}
