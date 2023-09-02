@@ -8,42 +8,71 @@ app.use(express.json());
 
 //crud routes
 
-// create
-app.post("/todos", async (req, res) => {
-  const { description } = req.body;
-  const insert = await sql`
-  insert into todo(description) values(${description}) returning *`;
-  res.json(insert[0]);
-});
-
+// h_agent
 // read
-app.get("/todos", async (req, res) => {
+app.get("/agents", async (req, res) => {
   const tb = await sql`
-  select * from todo
+  select * from h_agent
   `;
   res.json(tb);
 });
 
+// create
+app.post("/agents", async (req, res) => {
+  const {
+    business,
+    image,
+    position,
+    rating,
+    email,
+    phonenumber,
+    name
+  } = req.body;
+
+  const insert_agent = await sql`
+  insert into h_agent(business, image, position, rating, email, phonenumber, name)
+  values (${business}, ${image}, ${position}, ${rating}, ${email}, ${phonenumber}, ${name})
+  returning *
+  `;
+  res.json(insert_agent);
+});
+
 // update
-app.put("/todos/:id", async (req, res) => {
+app.put("/agents/:id", async (req, res) => {
   const { id } = req.params;
-  const { description } = req.body;
+  const {
+    business,
+    image,
+    position,
+    rating,
+    email,
+    phonenumber,
+    name
+  } = req.body;
   const update = await sql`
-  update todo set description = ${description} where todo_id = ${id}
+  update h_agent set business=${business},
+  image=${image},
+  position=${position},
+  rating=${rating},
+  email=${email},
+  phonenumber=${phonenumber},
+  name=${name}
+  where id = ${id}  
   returning *`;
   res.json(update[0]);
 });
 
-// delete
-app.delete("/todos/:id", async (req, res) => {
+// delete 
+app.delete("/agents/:id", async (req, res) => {
   const { id } = req.params;
   const deleteQuery = await sql`
-  delete from todo where todo_id = ${id}
+  delete from h_agent where id = ${id}
   `;
   res.json({
     status: "item deleted",
   });
 });
+
 
 app.listen(5000, () => {
   console.log("server has started");
