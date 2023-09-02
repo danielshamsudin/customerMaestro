@@ -13,7 +13,8 @@ import Master from "./Master/master.js";
 // import AddProduct from './Product/addproduct';
 // import ViewTask from './Task/viewtask';
 // import ViewAllTask from './Task/viewalltask';
-import AddTask from './Task/addtask';
+// import AddTask from './Task/addtask';
+import ViewSales from './Sales/viewsales';
 
 
 import './Utilities/colors.css'
@@ -22,7 +23,7 @@ import './Utilities/fonts/fonts.css'
 function App() {
   return ( <>
     <Master />
-    <AddTask />
+    <ViewSales />
   </> 
   );
 }

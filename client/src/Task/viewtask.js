@@ -22,7 +22,7 @@ function ViewTask() {
                     <h4><u>&lt; Back</u></h4>
                 </Col>
                 <Col className="top-row">
-                    <h4><u>View All Task</u></h4>
+                    <h4><u>View All Tasks</u></h4>
                 </Col>
             </Row>
             <Row className="second-row">
