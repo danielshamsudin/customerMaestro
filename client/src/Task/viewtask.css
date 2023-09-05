@@ -1,0 +1,83 @@
+@import '../Utilities/colors.css';
+
+* {
+    font-family: 'General Sans';
+}
+
+.first-row {
+    padding: 4% 0 4% 2%;
+}
+
+.top-row h4{
+    width: fit-content;
+}
+
+.top-row:nth-child(2){
+    display: flex;
+    justify-content: end;
+}
+
+.second-row {
+    display: flex;
+    justify-content: end;
+    margin: 4% 2% 4% 0;
+}
+
+.normal-btn {
+    margin-right: 2%;
+    background-color: var(--contrast);
+    border-color: var(--contrast);
+    color: var(--light);
+    font-family: 'Migra';
+}
+
+.done-btn {
+    margin-right: 2%;
+    font-family: 'Migra';
+}
+
+.remove-btn {
+    margin-right: 2%;
+    font-family: 'Migra';
+}
+
+
+.col-8 {
+    display: flex;
+    align-items: center;
+}
+
+.product-title {
+    /* padding: 5%; */
+    align-items: center;
+
+}
+
+.product-title > * {
+    width: fit-content;
+    font-size: 3rem;
+}
+
+
+.btn-choice > * {
+    margin-bottom: 3%;
+}
+
+.customer-container {
+    margin: 4% 2% 4% 0;
+}
+
+.details-container {
+    margin: 4% 2% 4% 0;
+}
+
+.customer-details {
+    margin: 5% 0 0 0;
+    border: 20px;
+    border-radius: 2%;
+    border-color: black;
+}
+
+.first-row-details {
+    margin-bottom: 5%;
+}

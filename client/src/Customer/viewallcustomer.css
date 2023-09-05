@@ -1,0 +1,54 @@
+@import '../Utilities/colors.css';
+
+* {
+    font-family: 'General Sans';
+}
+.title-row {
+    height: fit-content;
+    display: flex;
+    align-self: center;
+    margin: 10%;
+}
+
+.title-row h3 {
+    align-self: center;
+    margin: 0;
+}
+
+.main-title {
+    width: fit-content;
+}
+
+.export-btn {
+    width: auto;
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    position: relative;
+    height: 80%;
+    align-self: center;
+}
+
+.search-bar {
+    width: 80%;
+    margin: auto auto 10% auto;
+}
+
+.table-content {
+    margin: auto 4% auto 4%;
+}
+
+.view-field {
+    text-align: center;
+    width: 0;
+}
+
+.items-btn {
+    color: var(--contrast);
+    border-color: var(--contrast);
+    --bs-btn-hover-color: var(--primary-light);
+    --bs-btn-hover-bg: var(--contrast);
+    --bs-btn-hover-border-color: var(--contrast);
+    --bs-btn-active-color: var(--contrast);
+    --bs-btn-active-bg: var(--primary-light);
+    --bs-btn-active-border-color: var(--contrast)
+}
