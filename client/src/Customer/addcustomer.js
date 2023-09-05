@@ -16,10 +16,7 @@ function AddCustomer() {
     return <>
         <Container fluid>
             <Row className="justify-content-center title-row">
-                <h3 className="main-title">Customers</h3>
-                <Button variant="primary" size="sm" className="export-btn">
-                    <FontAwesomeIcon icon={faFileExport} />
-                </Button>
+                <h3 className="main-title">Add Customer</h3>
             </Row>
             <Row className="table-content">
                 <Form>
