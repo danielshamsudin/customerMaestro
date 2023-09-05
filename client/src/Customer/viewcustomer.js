@@ -7,12 +7,15 @@ import Table from 'react-bootstrap/Table';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faXmark } from '@fortawesome/free-solid-svg-icons'
-
+// React Component
+import Master from "../Master/master.js";
+// CSS
 import '../Utilities/colors.css'
 import './viewcustomer.css'
 
 function ViewCustomer() {
     return <>
+        <Master />
         <Container fluid>
             <Row>
                 <Col xs={3} className="top-row">

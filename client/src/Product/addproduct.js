@@ -5,17 +5,19 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-
+import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
-
+// React Component
+import Master from "../Master/master.js";
+// CSS
 import '../Utilities/colors.css'
 import './addproduct.css'
-import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 
 function AddProduct() {
     return <>
+    <Master />
         <Container fluid>
             <Row className="justify-content-center title-row">
                 <h3 className="main-title">Add Product</h3>

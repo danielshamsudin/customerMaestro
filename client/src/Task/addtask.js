@@ -1,3 +1,5 @@
+import React from "react";
+// React-Bootstrap
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
@@ -7,19 +9,21 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-
+import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
+// React Component
+import Master from "../Master/master.js";
+// CSS
 import "../Utilities/colors.css";
 import "./addtask.css";
-import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
-import React from "react";
+
 
 function AddTask() {
   return (
     <>
+      <Master />
       <Container fluid>
         <Row className="justify-content-center title-row">
           <h3 className="main-title">Add Task</h3>

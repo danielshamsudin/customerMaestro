@@ -8,6 +8,8 @@ import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartSimple, faUsers, faTags, faListCheck } from '@fortawesome/free-solid-svg-icons'
+// React Component
+import Master from "../Master/master.js";
 // CSS
 import "./admin.css"
 import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
@@ -34,6 +36,7 @@ function ContextAwareToggle({ children, eventKey, callback }) {
 
 function Admin() {
     return <>
+        <Master />
         <Container fluid>
             <Row className="justify-content-center">
                 <h1 className="heading-admin">Welcome, Name!</h1>

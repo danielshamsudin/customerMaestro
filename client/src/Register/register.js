@@ -8,12 +8,15 @@ import FloatingLabel from 'react-bootstrap/esm/FloatingLabel';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCircleUser } from '@fortawesome/free-solid-svg-icons'
+// React Component
+import Master from "../Master/master.js";
 // CSS
 import './register.css'
 
 function Register() {
     return (
         <>
+            <Master />
             <h1 className='login-heading'>Register An Account</h1>
             <Form className='main-form'>
                 <Row className='justify-content-center'>

@@ -7,12 +7,15 @@ import Form from 'react-bootstrap/Form';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+// React Component
+import Master from "../Master/master.js";
 // CSS
 import './login.css'
 
 function Login() {
     return (
         <>
+        <Master />
         <h1 className='login-heading'>Login</h1>
         <Form className='main-form'>
           <Form.Group className="mb-3" controlId="formBasicEmail">
