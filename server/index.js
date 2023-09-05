@@ -7,108 +7,79 @@ app.use(cors());
 app.use(express.json());
 
 //crud routes
-
-// h_agent
-// read
-app.get("/agents", async (req, res) => {
-  const tb = await sql`
-  select * from h_agent
-  `;
-  res.json(tb);
-});
-
-// create
-app.post("/agents", async (req, res) => {
-  const { business, image, position, rating, email, phonenumber, name } =
-    req.body;
-
-  const insert_agent = await sql`
-  insert into h_agent(business, image, position, rating, email, phonenumber, name)
-  values (${business}, ${image}, ${position}, ${rating}, ${email}, ${phonenumber}, ${name})
-  returning *
-  `;
-  res.json(insert_agent);
-});
-
-// update
-app.put("/agents/:id", async (req, res) => {
-  const { id } = req.params;
-  const { business, image, position, rating, email, phonenumber, name } =
-    req.body;
-  const update = await sql`
-  update h_agent set business=${business},
-  image=${image},
-  position=${position},
-  rating=${rating},
-  email=${email},
-  phonenumber=${phonenumber},
-  name=${name}
-  where id = ${id}  
-  returning *`;
-  res.json(update[0]);
-});
-
-// delete
-app.delete("/agents/:id", async (req, res) => {
-  const { id } = req.params;
-  const deleteQuery = await sql`
-  delete from h_agent where id = ${id}
-  `;
-  res.json({
-    status: "item deleted",
+function generateCRUDRoutes(app, tableName, columns) {
+  const tbn = tableName.substring(2);
+  // Read
+  app.get(`/${tbn}`, async (req, res) => {
+    const tb = await sql`
+      select * from ${sql(tableName)}
+    `;
+    res.json(tb);
   });
-});
 
-// h_business
-// read
-app.get("/business", async (req, res) => {
-  const tb = await sql`
-  select * from h_business
-  `;
-  res.json(tb);
-});
-
-// create
-app.post("/business", async (req, res) => {
-  const { companyid, businessname, address, email, phonenumber, createddate } =
-    req.body;
-
-  const create_business = await sql`
-  insert into h_business(companyid, businessname, address, email, phonenumber, createddate)
-  values (${companyid}, ${businessname}, ${address}, ${email}, ${phonenumber}, ${createddate})
-  returning *
-  `;
-  res.json(create_business);
-});
-
-// update
-app.put("/business/:id", async (req, res) => {
-  const { id } = req.params;
-  const { companyid, businessname, address, email, phonenumber, createddate } =
-    req.body;
-  const update = await sql`
-  update h_business set 
-  companyid=${companyid},
-  businessname=${businessname},
-  address=${address}, 
-  email=${email}, 
-  phonenumber=${phonenumber}, 
-  createddate=${createddate}
-  where id=${id}
-  returning *`;
-  res.json(update[0]);
-});
-
-// delete
-app.delete("/business/:id", async (req, res) => {
-  const { id } = req.params;
-  const deleteQuery = await sql`
-  delete from h_business where id = ${id}
-  `;
-  res.json({
-    status: "item deleted",
+  // Create
+  app.post(`/${tableName}`, async (req, res) => {
+    const insertData = {};
+    columns.forEach((column) => {
+      insertData[column] = req.body[column];
+    });
+    console.log(insertData);
+    console.log(columns);
+    const insertQuery = await sql`
+      insert into ${sql(tableName)} ${sql(insertData, ...columns)}
+      returning *
+    `;
+    res.json(insertQuery);
   });
-});
+
+  // Update
+  app.put(`/${tableName}/:id`, async (req, res) => {
+    const { id } = req.params;
+    const updateData = {};
+    columns.forEach((column) => {
+      updateData[column] = req.body[column];
+    });
+    console.log(updateData);
+    console.log(columns);
+
+    const updateQuery = await sql`
+      update ${sql(tableName)} set ${sql(updateData, ...columns)}
+      where id = ${id}
+      returning *
+    `;
+    res.json(updateQuery[0]);
+  });
+
+  // Delete
+  app.delete(`/${tableName}/:id`, async (req, res) => {
+    const { id } = req.params;
+    const deleteQuery = await sql`
+      delete from ${sql(tableName)} where id = ${id}
+    `;
+    res.json({
+      status: "item deleted",
+    });
+  });
+}
+
+generateCRUDRoutes(app, "h_agent", [
+  "business",
+  "image",
+  "position",
+  "rating",
+  "email",
+  "phonenumber",
+  "name",
+]);
+
+generateCRUDRoutes(app, "h_business", [
+  "companyid",
+  "businessname",
+  "address",
+  "email",
+  "phonenumber",
+  "createddate",
+]);
 
 app.listen(5000, () => {
   console.log("server has started");
