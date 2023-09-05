@@ -59,6 +59,57 @@ app.delete("/agents/:id", async (req, res) => {
   });
 });
 
+// h_business
+// read
+app.get("/business", async (req, res) => {
+  const tb = await sql`
+  select * from h_business
+  `;
+  res.json(tb);
+});
+
+// create
+app.post("/business", async (req, res) => {
+  const { companyid, businessname, address, email, phonenumber, createddate } =
+    req.body;
+
+  const create_business = await sql`
+  insert into h_business(companyid, businessname, address, email, phonenumber, createddate)
+  values (${companyid}, ${businessname}, ${address}, ${email}, ${phonenumber}, ${createddate})
+  returning *
+  `;
+  res.json(create_business);
+});
+
+// update
+app.put("/business/:id", async (req, res) => {
+  const { id } = req.params;
+  const { companyid, businessname, address, email, phonenumber, createddate } =
+    req.body;
+  const update = await sql`
+  update h_business set 
+  companyid=${companyid},
+  businessname=${businessname},
+  address=${address}, 
+  email=${email}, 
+  phonenumber=${phonenumber}, 
+  createddate=${createddate}
+  where id=${id}
+  returning *`;
+  res.json(update[0]);
+});
+
+// delete
+app.delete("/business/:id", async (req, res) => {
+  const { id } = req.params;
+  const deleteQuery = await sql`
+  delete from h_business where id = ${id}
+  `;
+  res.json({
+    status: "item deleted",
+  });
+});
+
 app.listen(5000, () => {
   console.log("server has started");
 });
