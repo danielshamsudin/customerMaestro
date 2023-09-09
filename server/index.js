@@ -81,6 +81,79 @@ generateCRUDRoutes(app, "h_business", [
   "createddate",
 ]);
 
+generateCRUDRoutes(app, "h_customer", [
+  "Name",
+  "Gender",
+  "Agent",
+  "Email",
+  "PhoneNumber",
+  "Address",
+  "ShippingAddress",
+  "Recurring",
+  "CreatedDate",
+  "IC",
+  "Preference",
+]);
+
+generateCRUDRoutes(app, "h_product", [
+  "Name",
+  "Price",
+  "Description",
+  "Stock",
+  "Agent",
+  "Business",
+  "Type",
+  "SKU",
+  "Image",
+]);
+
+generateCRUDRoutes(app, "l_Agent_Customer", [
+  "agentid",
+  "customerid",
+  "createdDate",
+]);
+
+generateCRUDRoutes(app, "l_agent_product", [
+  "agentid",
+  "productid",
+  "createdDate",
+]);
+
+generateCRUDRoutes(app, "l_customer_product", [
+  "Customer",
+  "Product",
+  "CreatedDate",
+]);
+
+generateCRUDRoutes(app, "s_lead", [
+  "Agent",
+  "ProductInterest",
+  "Customer",
+  "Contact",
+  "Followup",
+  "EngagementChannel",
+  "CreatedDate",
+]);
+
+generateCRUDRoutes(app, "s_sales", [
+  "Agent",
+  "Customer",
+  "DeliveryCost",
+  "TotalPrice",
+  "Products",
+  "CreatedDate",
+]);
+
+generateCRUDRoutes(app, "s_task", [
+  "agent_id",
+  "category",
+  "timetocomplete",
+  "createddate",
+  "title",
+  "description",
+  "status",
+]);
+
 app.listen(5000, () => {
   console.log("server has started");
 });
