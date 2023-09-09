@@ -18,7 +18,7 @@ function generateCRUDRoutes(app, tableName, columns) {
   });
 
   // Create
-  app.post(`/${tableName}`, async (req, res) => {
+  app.post(`/${tbn}`, async (req, res) => {
     const insertData = {};
     columns.forEach((column) => {
       insertData[column] = req.body[column];
@@ -33,7 +33,7 @@ function generateCRUDRoutes(app, tableName, columns) {
   });
 
   // Update
-  app.put(`/${tableName}/:id`, async (req, res) => {
+  app.put(`/${tbn}/:id`, async (req, res) => {
     const { id } = req.params;
     const updateData = {};
     columns.forEach((column) => {
@@ -51,7 +51,7 @@ function generateCRUDRoutes(app, tableName, columns) {
   });
 
   // Delete
-  app.delete(`/${tableName}/:id`, async (req, res) => {
+  app.delete(`/${tbn}/:id`, async (req, res) => {
     const { id } = req.params;
     const deleteQuery = await sql`
       delete from ${sql(tableName)} where id = ${id}
