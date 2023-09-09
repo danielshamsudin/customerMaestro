@@ -94,7 +94,7 @@ function ProductTable() {
               <Button
                 variant="outline-primary"
                 className="items-btn"
-                onClick={handleCustomer(customer.ID)}
+                // onClick={handleCustomer(customer.ID)}
               >
                 View
               </Button>
