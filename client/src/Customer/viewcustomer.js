@@ -5,69 +5,83 @@ import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 
 // Font Awesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
 // React Component
 import Master from "../Master/master.js";
 // CSS
-import '../Utilities/colors.css'
-import './viewcustomer.css'
+import "../Utilities/colors.css";
+import "./viewcustomer.css";
+import { useLocation } from "react-router-dom";
 
 function ViewCustomer() {
-    return <>
-        <Master />
-        <Container fluid>
-            <Row>
-                <Col xs={3} className="top-row">
-                    <h4><u>&lt; Back</u></h4>
-                </Col>
-                <Col className="top-row">
-                    <h4><u>View All Customers</u></h4>
-                </Col>
-            </Row>
-            <Row className="second-row">
-                <Button variant="primary" size="sm">
-                    <FontAwesomeIcon icon={faPenToSquare} /> Edit
-                </Button>
-                <Button variant="danger" size="sm">
-                    <FontAwesomeIcon icon={faXmark} /> Remove
-                </Button>
-            </Row>
-            <Container className="customer-main-content">
-                <Row>
-                    <Col><h5><b>Muhammad ABC</b></h5></Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>IC</Col>
-                    <Col>991235-14-2344</Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>Gender</Col>
-                    <Col>Male</Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>Email</Col>
-                    <Col>muhammad@gmail.com</Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>Tel</Col>
-                    <Col>012-234 5460</Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>Address</Col>
-                    <Col>No 23, Jalan Persiaran A, 32504 Selangor</Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>Shipping Address</Col>
-                    <Col>muhammad@gmail.com</Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>Preference</Col>
-                    <Col>Goreng Pisang Cheese</Col>
-                </Row>
-            </Container>
+  const location = useLocation();
+  const custInfo = location.state.customerInformation;
+
+  return (
+    <>
+      <Master />
+      <Container fluid>
+        <Row>
+          <Col xs={3} className="top-row">
+            <h4>
+              <u>&lt; Back</u>
+            </h4>
+          </Col>
+          <Col className="top-row">
+            <h4>
+              <u>View All Customers</u>
+            </h4>
+          </Col>
+        </Row>
+        <Row className="second-row">
+          <Button variant="primary" size="sm">
+            <FontAwesomeIcon icon={faPenToSquare} /> Edit
+          </Button>
+          <Button variant="danger" size="sm">
+            <FontAwesomeIcon icon={faXmark} /> Remove
+          </Button>
+        </Row>
+        <Container className="customer-main-content">
+          <Row>
+            <Col>
+              <h5>
+                <b>{custInfo.Name}</b>
+              </h5>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={4}>IC</Col>
+            <Col>{custInfo.IC}</Col>
+          </Row>
+          <Row>
+            <Col xs={4}>Gender</Col>
+            <Col>{custInfo.Gender}</Col>
+          </Row>
+          <Row>
+            <Col xs={4}>Email</Col>
+            <Col>{custInfo.Email}</Col>
+          </Row>
+          <Row>
+            <Col xs={4}>Tel</Col>
+            <Col>{custInfo.PhoneNumber}</Col>
+          </Row>
+          <Row>
+            <Col xs={4}>Address</Col>
+            <Col>{custInfo.Address}</Col>
+          </Row>
+          <Row>
+            <Col xs={4}>Shipping Address</Col>
+            <Col>{custInfo.ShippingAddress}</Col>
+          </Row>
+          <Row>
+            <Col xs={4}>Preference</Col>
+            <Col>{custInfo.Preference}</Col>
+          </Row>
         </Container>
+      </Container>
     </>
+  );
 }
 
 function ProductDetails() {
