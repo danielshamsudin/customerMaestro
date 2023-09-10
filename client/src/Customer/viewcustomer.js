@@ -3,10 +3,10 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
-
+import { useNavigate } from "react-router-dom";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faXmark, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 // React Component
 import Master from "../Master/master.js";
 // CSS
@@ -17,30 +17,34 @@ import { useLocation } from "react-router-dom";
 function ViewCustomer() {
   const location = useLocation();
   const custInfo = location.state.customerInformation;
+  const navigate = useNavigate();
+
+  const handleCustomer = () => {
+    custInfo &&
+        navigate(`/addcust/${custInfo.ID}`, {
+          state: { customerInformation: custInfo },
+        });
+    };
 
   return (
     <>
       <Master />
       <Container fluid>
-        <Row>
-          <Col xs={3} className="top-row">
-            <h4>
-              <u>&lt; Back</u>
-            </h4>
+        <Row className="first-row">
+          <Col xs={6}>
+            <Button variant="primary" size="sm" onClick={() => navigate(-1)}>
+              <FontAwesomeIcon icon={faArrowLeft} /> Back
+            </Button>
           </Col>
-          <Col className="top-row">
-            <h4>
-              <u>View All Customers</u>
-            </h4>
+          <Col className="second-column">
+            <Button variant="primary" size="sm" onClick={() => handleCustomer()}>
+              <FontAwesomeIcon icon={faPenToSquare} /> Edit
+            </Button>
+            <Button variant="danger" size="sm">
+              <FontAwesomeIcon icon={faXmark} /> Remove
+            </Button>
           </Col>
-        </Row>
-        <Row className="second-row">
-          <Button variant="primary" size="sm">
-            <FontAwesomeIcon icon={faPenToSquare} /> Edit
-          </Button>
-          <Button variant="danger" size="sm">
-            <FontAwesomeIcon icon={faXmark} /> Remove
-          </Button>
+
         </Row>
         <Container className="customer-main-content">
           <Row>

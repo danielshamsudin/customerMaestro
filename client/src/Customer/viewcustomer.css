@@ -17,18 +17,23 @@
     justify-content: end;
 }
 
-.second-row {
+.first-row {
     display: flex;
     justify-content: end;
 }
 
-.second-row button {
+.first-row button {
     width: auto;
     margin-right: 2%;
     background-color: var(--primary-light);
     border-color: var(--primary-light);
     color: var(--dark);
     font-family: 'Migra';
+}
+
+.second-column {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .customer-main-content > * {
