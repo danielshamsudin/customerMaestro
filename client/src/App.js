@@ -24,7 +24,6 @@ import ViewAllCustomer from "./Customer/viewallcustomer";
 
 import AddCustomer from "./Customer/addcustomer";
 
-
 import "./Utilities/colors.css";
 import "./Utilities/fonts/fonts.css";
 
@@ -37,8 +36,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/addcust" element={<AddCustomer />} />
-          <Route path="/viewallcust" element={<ViewAllCustomer />} />
-          <Route path="/viewcust" element={<ViewCustomer />} />
+          <Route path="/customer" element={<ViewAllCustomer />} />
+          <Route path="/customer/:id" element={<ViewCustomer />} />
           <Route path="/addsale" element={<AddSale />} />
           <Route path="/viewallsales" element={<ViewAllSales />} />
           <Route path="/viewsales" element={<ViewSales />} />

@@ -1,3 +1,7 @@
+import axios from "axios";
+
+import { useNavigate, generatePath } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Button from "react-bootstrap/Button";
@@ -6,31 +10,35 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 // Font Awesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileExport, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFileExport,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 // React Component
 import Master from "../Master/master.js";
 // CSS
-import '../Utilities/colors.css'
-import './viewallcustomer.css'
+import "../Utilities/colors.css";
+import "./viewallcustomer.css";
 
 function ViewAllCustomer() {
-    return <>
-    <Master />
-        <Container fluid>
-            <Row className="justify-content-center title-row">
-                <h3 className="main-title">Customers</h3>
-                <Button variant="primary" size="sm" className="export-btn">
-                    <FontAwesomeIcon icon={faFileExport} />
-                </Button>
-            </Row>
-            <Row>
-                <SearchBar />
-            </Row>
-            <Row className="table-content">
-                <ProductTable />
-            </Row>
-        </Container>
+  return (
+    <>
+      <Master />
+      <Container fluid>
+        <Row className="justify-content-center title-row">
+          <h3 className="main-title">Customers</h3>
+          <Button variant="primary" size="sm" className="export-btn">
+            <FontAwesomeIcon icon={faFileExport} />
+          </Button>
+        </Row>
+        <Row>
+          <SearchBar />
+        </Row>
+        <Row className="table-content">
+          <ProductTable />
+        </Row>
+      </Container>
     </>
   );
 }
@@ -51,22 +59,21 @@ function SearchBar() {
 
 function ProductTable() {
   const [data, setData] = useState([]);
+  const [custId, setCustId] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/customer")
-      .then((res) => res.json())
-      .then((d) => {
-        console.log(d);
-        setData(d);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    axios.get("http://localhost:5000/customer").then((res) => {
+      console.log(res["data"]);
+      setData(res["data"]);
+    });
   }, []);
 
-  const handleCustomer = (id) => {
-    id && navigate(generatePath("/customer/:id", { id }));
+  const handleCustomer = (customerInfo) => {
+    customerInfo &&
+      navigate(`/customer/${customerInfo.ID}`, {
+        state: { customerInformation: customerInfo },
+      });
   };
 
   return (
@@ -86,9 +93,10 @@ function ProductTable() {
             <td className="view-field">
               {" "}
               <Button
+                key={customer.ID}
                 variant="outline-primary"
                 className="items-btn"
-                // onClick={handleCustomer(customer.ID)}
+                onClick={() => handleCustomer(customer)}
               >
                 View
               </Button>
