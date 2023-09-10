@@ -15,15 +15,6 @@ import { faBars, faUser, faHouse } from "@fortawesome/free-solid-svg-icons";
 import "./master.css";
 // react
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import {
-  MDBContainer,
-  MDBCollapse,
-  MDBNavbar,
-  MDBNavbarToggler,
-  MDBIcon,
-  MDBBtn,
-} from "mdb-react-ui-kit";
 
 function closeAllOverlays() {
   const showElement = document.querySelectorAll("#popover-positioned-right");

@@ -67,9 +67,7 @@ function ViewCustomer() {
                 </Row>
             </Container>
         </Container>
-      </Container>
     </>
-  );
 }
 
 function ProductDetails() {

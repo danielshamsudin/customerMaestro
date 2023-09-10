@@ -13,7 +13,6 @@ import Master from "../Master/master.js";
 // CSS
 import "./login.css";
 
-import Master from "../Master/master";
 function Login() {
     return (
         <>
