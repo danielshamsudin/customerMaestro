@@ -70,6 +70,7 @@ generateCRUDRoutes(app, "h_agent", [
   "email",
   "phonenumber",
   "name",
+  "password",
 ]);
 
 generateCRUDRoutes(app, "h_business", [
