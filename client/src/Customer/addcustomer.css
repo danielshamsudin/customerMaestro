@@ -1,0 +1,41 @@
+@import '../Utilities/colors.css';
+
+* {
+    font-family: 'General Sans';
+}
+.title-row {
+    height: fit-content;
+    display: flex;
+    align-self: center;
+    margin: 10%;
+}
+
+.title-row h3 {
+    align-self: center;
+    margin: 0;
+}
+
+.main-title {
+    width: fit-content;
+}
+
+.export-btn {
+    width: auto;
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    position: relative;
+    height: 80%;
+    align-self: center;
+}
+
+.table-content {
+    margin: auto 4% auto 4%;
+}
+
+.submit-btn {
+    width: auto;
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    margin-bottom: 5%;
+}
+

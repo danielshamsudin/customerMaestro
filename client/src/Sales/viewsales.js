@@ -6,16 +6,18 @@ import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faCheck, faXmark, faFileExport } from '@fortawesome/free-solid-svg-icons'
-
+// React Component
+import Master from "../Master/master.js";
+// CSS
 import '../Utilities/colors.css'
 import './viewsales.css'
 
 function ViewSales() {
     return <>
+        <Master />
         <Container fluid>
             <Row className="first-row">
                 <Col xs={3}>
@@ -39,7 +41,7 @@ function ViewSales() {
                 </Col>
             </Row>
             <Row className="timestamp-row">
-                <Col>23/03/2023 14:45</Col>  
+                <Col>23/03/2023 14:45</Col>
             </Row>
             <Row>
                 <CustomerDetails />

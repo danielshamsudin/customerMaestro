@@ -8,13 +8,16 @@ import InputGroup from 'react-bootstrap/InputGroup';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileExport, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+// React Component
+import Master from "../Master/master.js";
+// CSS
 import '../Utilities/colors.css'
 import './addsale.css'
 
 
 function AddSale() {
     return <>
+    <Master />
         <Container fluid className="add-sale-container">
             <Row className="justify-content-center title-row">
                 <h4>Add Sale</h4>

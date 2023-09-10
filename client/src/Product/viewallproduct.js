@@ -8,12 +8,15 @@ import InputGroup from 'react-bootstrap/InputGroup';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileExport, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+// React Component
+import Master from "../Master/master.js";
+// CSS
 import '../Utilities/colors.css'
 import './viewallproduct.css'
 
 function ViewAllProduct() {
     return <>
+    <Master />
         <Container fluid>
             <Row className="justify-content-center title-row">
                 <h3 className="main-title">Products</h3>

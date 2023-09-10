@@ -6,37 +6,31 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 // Font Awesome
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFileExport,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-
-import "../Utilities/colors.css";
-import "./viewallcustomer.css";
-
-import Master from "../Master/master";
-import { useState, useEffect } from "react";
-import { useNavigate, generatePath } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileExport, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+// React Component
+import Master from "../Master/master.js";
+// CSS
+import '../Utilities/colors.css'
+import './viewallcustomer.css'
 
 function ViewAllCustomer() {
-  return (
-    <>
-      <Master />
-      <Container fluid>
-        <Row className="justify-content-center title-row">
-          <h3 className="main-title">Customers</h3>
-          <Button variant="primary" size="sm" className="export-btn">
-            <FontAwesomeIcon icon={faFileExport} />
-          </Button>
-        </Row>
-        <Row>
-          <SearchBar />
-        </Row>
-        <Row className="table-content">
-          <ProductTable />
-        </Row>
-      </Container>
+    return <>
+    <Master />
+        <Container fluid>
+            <Row className="justify-content-center title-row">
+                <h3 className="main-title">Customers</h3>
+                <Button variant="primary" size="sm" className="export-btn">
+                    <FontAwesomeIcon icon={faFileExport} />
+                </Button>
+            </Row>
+            <Row>
+                <SearchBar />
+            </Row>
+            <Row className="table-content">
+                <ProductTable />
+            </Row>
+        </Container>
     </>
   );
 }
