@@ -1,37 +1,43 @@
 // React Bootstrap
-import { useContext } from 'react';
-import Container from "react-bootstrap/esm/Container"
-import Row from "react-bootstrap/esm/Row"
-import Accordion from 'react-bootstrap/Accordion';
-import AccordionContext from 'react-bootstrap/AccordionContext';
-import { useAccordionButton } from 'react-bootstrap/AccordionButton';
+import { useContext } from "react";
+import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/esm/Row";
+import Accordion from "react-bootstrap/Accordion";
+import AccordionContext from "react-bootstrap/AccordionContext";
+import { useAccordionButton } from "react-bootstrap/AccordionButton";
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartSimple, faUsers, faTags, faListCheck } from '@fortawesome/free-solid-svg-icons'
 // React Component
 import Master from "../Master/master.js";
 // CSS
-import "./admin.css"
-import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
+import "./admin.css";
+import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
+
+// template imports
+import Master from "../Master/master";
 
 function ContextAwareToggle({ children, eventKey, callback }) {
-    const { activeEventKey } = useContext(AccordionContext);
+  const { activeEventKey } = useContext(AccordionContext);
 
-    const decoratedOnClick = useAccordionButton(
-        eventKey,
-        () => callback && callback(eventKey),
-    );
+  const decoratedOnClick = useAccordionButton(
+    eventKey,
+    () => callback && callback(eventKey)
+  );
 
-    const isCurrentEventKey = activeEventKey === eventKey;
+  const isCurrentEventKey = activeEventKey === eventKey;
 
-    return (
-        <AccordionHeader
-            style={{ backgroundColor: isCurrentEventKey ? "#899878" : 'white', color: isCurrentEventKey ? 'white' : 'black' }}
-            onClick={decoratedOnClick}
-        >
-            {children}
-        </AccordionHeader>
-    );
+  return (
+    <AccordionHeader
+      style={{
+        backgroundColor: isCurrentEventKey ? "#899878" : "white",
+        color: isCurrentEventKey ? "white" : "black",
+      }}
+      onClick={decoratedOnClick}
+    >
+      {children}
+    </AccordionHeader>
+  );
 }
 
 function Admin() {
@@ -95,6 +101,7 @@ function Admin() {
             </Accordion>
         </Container>
     </>
+  );
 }
 
-export default Admin
+export default Admin;

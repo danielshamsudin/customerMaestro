@@ -9,10 +9,21 @@ import Modal from 'react-bootstrap/Modal';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 // Font Awesome
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faUser, faHouse } from "@fortawesome/free-solid-svg-icons";
 // CSS
-import './master.css'
+import "./master.css";
+// react
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import {
+  MDBContainer,
+  MDBCollapse,
+  MDBNavbar,
+  MDBNavbarToggler,
+  MDBIcon,
+  MDBBtn,
+} from "mdb-react-ui-kit";
 
 function closeAllOverlays() {
   const showElement = document.querySelectorAll("#popover-positioned-right");
@@ -26,7 +37,6 @@ function closeAllOverlays() {
 }
 
 function Master() {
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -93,5 +103,5 @@ function OverlayNavbar(props) {
   }
 }
 
-
 export default Master;
+

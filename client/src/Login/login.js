@@ -1,17 +1,19 @@
 // React Bootstrap
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 // Font Awesome
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 // React Component
 import Master from "../Master/master.js";
 // CSS
-import './login.css'
+import "./login.css";
 
+import Master from "../Master/master";
 function Login() {
     return (
         <>
@@ -42,13 +44,14 @@ function Login() {
 }
 
 function FormField(props) {
-    return (
-        <>
-            <label for={ props.name}>{props.name}</label><br/>
-            <input type='text' id={props.name} name={props.name}></input><br/>
-        </>
-    )
+  return (
+    <>
+      <label for={props.name}>{props.name}</label>
+      <br />
+      <input type="text" id={props.name} name={props.name}></input>
+      <br />
+    </>
+  );
 }
-
 
 export default Login;

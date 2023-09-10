@@ -1,8 +1,8 @@
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
-import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
+import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
 
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -67,38 +67,45 @@ function ViewCustomer() {
                 </Row>
             </Container>
         </Container>
+      </Container>
     </>
+  );
 }
 
 function ProductDetails() {
-    return (
-        <Table hover size="sm" className="product-table">
-            <thead>
-                <tr>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Current Stock</td>
-                    <td>14</td>
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    <td>RM2</td>
-                </tr>
-                <tr>
-                    <td>Description</td>
-                    <td colSpan={2}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla malesuada mi non purus viverra, sed facilisis nunc sagittis. Donec interdum molestie faucibus. Nam pulvinar libero at ante dapibus, at posuere nisl ullamcorper. Fusce auctor, lacus in condimentum sagittis, nisi nisl volutpat metus, quis venenatis turpis velit sed libero. Integer molestie fringilla mollis. Maecenas est nibh, accumsan in nibh in, condimentum aliquet quam</td>
-                </tr>
-                <tr>
-                    <td>Type</td>
-                    <td>Food</td>
-                </tr>
-            </tbody>
-        </Table>
-    );
+  return (
+    <Table hover size="sm" className="product-table">
+      <thead>
+        <tr></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Current Stock</td>
+          <td>14</td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td>RM2</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td colSpan={2}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            malesuada mi non purus viverra, sed facilisis nunc sagittis. Donec
+            interdum molestie faucibus. Nam pulvinar libero at ante dapibus, at
+            posuere nisl ullamcorper. Fusce auctor, lacus in condimentum
+            sagittis, nisi nisl volutpat metus, quis venenatis turpis velit sed
+            libero. Integer molestie fringilla mollis. Maecenas est nibh,
+            accumsan in nibh in, condimentum aliquet quam
+          </td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>Food</td>
+        </tr>
+      </tbody>
+    </Table>
+  );
 }
-
 
 export default ViewCustomer;
