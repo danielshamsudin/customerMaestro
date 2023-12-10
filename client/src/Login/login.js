@@ -12,7 +12,9 @@ import "./login.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+// Functions
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Login() {
   const navigate = useNavigate();
@@ -20,6 +22,8 @@ function Login() {
   const [pwd, setPwd] = useState("");
   const [data, setData] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const { loginWithRedirect } = useAuth0();
 
   useEffect(() => {
     axios.get("http://localhost:5000/agent").then((res) => setData(res.data));
@@ -70,6 +74,15 @@ function Login() {
         <Row className="justify-content-center">
           <Button variant="primary" type="submit" className="login-btn">
             Login
+          </Button>
+          <Button
+            onClick={() =>
+              loginWithRedirect({
+                redirectUri: "http://localhost:3000/",
+              })
+            }
+          >
+            Test auth0
           </Button>
         </Row>
       </Form>

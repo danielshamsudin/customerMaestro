@@ -2,9 +2,23 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const sql = require("./db");
+const { auth, requiresAuth } = require("express-openid-connect");
+require("dotenv").config();
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH0_SECRET,
+  baseURL: "http://localhost:3000",
+  clientID: "vVh7xg469baCOXXaAXaRX0sW5gqAMhKN",
+  issuerBaseURL: "https://dev-ec4i4trwsdu165uk.us.auth0.com",
+};
 
 app.use(cors());
 app.use(express.json());
+app.use(auth(config));
+
+app.get("/login", async (req, res) => {});
 
 //crud routes
 function generateCRUDRoutes(app, tableName, columns) {

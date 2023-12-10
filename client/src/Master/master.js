@@ -7,15 +7,26 @@ import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faUser, faHouse } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faUser,
+  faHouse,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 // CSS
 import "./master.css";
+
+// Functions
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Master() {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const { isAuthenticated, logout } = useAuth0();
+
   return (
     <>
       <Container fluid className="main-con">
@@ -25,6 +36,18 @@ function Master() {
               <FontAwesomeIcon icon={faBars} />
             </button>
           </Col>
+          {isAuthenticated && (
+            <Col>
+              {/* TODO: align to beside user icon */}
+              <Row className="justify-content-end logo">
+                <FontAwesomeIcon
+                  className="logo"
+                  icon={faRightFromBracket}
+                  onClick={() => logout()}
+                />
+              </Row>
+            </Col>
+          )}
           <Col>
             <Row className="justify-content-end logo">
               {window.location.pathname === "/login" ? (
