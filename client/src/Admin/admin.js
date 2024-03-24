@@ -5,6 +5,7 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Accordion from "react-bootstrap/Accordion";
 import AccordionContext from "react-bootstrap/AccordionContext";
+import Spinner from "react-bootstrap/Spinner";
 import { useAccordionButton } from "react-bootstrap/AccordionButton";
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,6 +56,7 @@ function Admin() {
   const { isAuthenticated, loginWithRedirect, logout, user, isLoading, error } =
     useAuth0();
 
+  console.log(user);
   // useEffect(() => {
   //   if (!location.state) {
   //     return navigate("/login");
@@ -67,8 +69,17 @@ function Admin() {
       <Master />
       {error && <p>Authentication error</p>}{" "}
       {/*TODO: Add proper error display, error message is stored in error variable*/}
-      {!error && isLoading && <p>Loading...</p>}{" "}
-      {/* TODO: Add spinner(?) to wait for auth0 redirect*/}
+      {!error && isLoading && (
+        <>
+          <Container fluid>
+            <Row className="justify-content-center">
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </Row>
+          </Container>
+        </>
+      )}{" "}
       {!error && !isLoading && (
         <>
           <Container fluid>

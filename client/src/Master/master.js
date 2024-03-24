@@ -36,35 +36,29 @@ function Master() {
               <FontAwesomeIcon icon={faBars} />
             </button>
           </Col>
+
           {isAuthenticated && (
-            <Col>
-              {/* TODO: align to beside user icon */}
-              <Row className="justify-content-end logo">
-                <FontAwesomeIcon
-                  className="logo"
-                  icon={faRightFromBracket}
-                  onClick={() => logout()}
-                />
-              </Row>
-            </Col>
+            <>
+              <Col>
+                <Row className="justify-content-end logo">
+                  <FontAwesomeIcon
+                    className="logo"
+                    icon={faRightFromBracket}
+                    onClick={() => logout()}
+                  />
+                </Row>
+              </Col>
+              <Col>
+                <Row className="justify-content-end logo">
+                  <FontAwesomeIcon
+                    className="logo"
+                    icon={faHouse}
+                    onClick={() => navigate("/")}
+                  />
+                </Row>
+              </Col>
+            </>
           )}
-          <Col>
-            <Row className="justify-content-end logo">
-              {window.location.pathname === "/login" ? (
-                <FontAwesomeIcon
-                  className="logo"
-                  icon={faHouse}
-                  onClick={() => navigate("/")}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  className="logo"
-                  icon={faUser}
-                  onClick={() => navigate("/login")}
-                />
-              )}
-            </Row>
-          </Col>
         </Row>
       </Container>
       <Modal

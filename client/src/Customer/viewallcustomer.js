@@ -4,10 +4,12 @@ import { useNavigate, generatePath } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
+import Col from "react-bootstrap/esm/Col";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Spinner from "react-bootstrap/Spinner";
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -58,14 +60,17 @@ function SearchBar() {
 }
 
 function ProductTable() {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [custId, setCustId] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
     axios.get("http://localhost:5000/customer").then((res) => {
       console.log(res["data"]);
       setData(res["data"]);
+      setLoading(false);
     });
   }, []);
 
@@ -77,34 +82,47 @@ function ProductTable() {
   };
 
   return (
-    <Table bordered hover size="sm" className="product-table">
-      <thead>
-        <tr>
-          <th>IC</th>
-          <th>Name</th>
-          <th className="view-field"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((customer) => (
-          <tr key={customer.ID}>
-            <td>{customer.IC}</td>
-            <td>{customer.Name}</td>
-            <td className="view-field">
-              {" "}
-              <Button
-                key={customer.ID}
-                variant="outline-primary"
-                className="items-btn"
-                onClick={() => handleCustomer(customer)}
-              >
-                View
-              </Button>
-            </td>
+    <>
+      <Table bordered hover size="sm" className="product-table">
+        <thead>
+          <tr>
+            <th>IC</th>
+            <th>Name</th>
+            <th className="view-field"></th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        {loading && (
+          <Container fluid>
+            <Row className="justify-content-center">
+              <Col>
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              </Col>
+            </Row>
+          </Container>
+        )}
+        <tbody>
+          {data.map((customer) => (
+            <tr key={customer.ID}>
+              <td>{customer.IC}</td>
+              <td>{customer.Name}</td>
+              <td className="view-field">
+                {" "}
+                <Button
+                  key={customer.ID}
+                  variant="outline-primary"
+                  className="items-btn"
+                  onClick={() => handleCustomer(customer)}
+                >
+                  View
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </>
   );
 }
 
